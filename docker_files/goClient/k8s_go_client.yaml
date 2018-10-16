@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: goclient
-        image: registry.cn-qingdao.aliyuncs.com/ruipages/go-client
+        image: registry.cn-qingdao.aliyuncs.com/ruipages/go_client
         command: ["./random "]
         args: ["-listen-address=:8080"]
         ports:
