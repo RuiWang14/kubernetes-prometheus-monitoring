@@ -12,9 +12,8 @@ spec:
       labels:
         app: go-client
     spec:
-      serviceAccountName: prometheus-k8s
       containers:
-      - name: prometheus
+      - name: goclient
         image: registry.cn-qingdao.aliyuncs.com/ruipages/go-client
         command: ["./random "]
         args: ["-listen-address=:8080"]
