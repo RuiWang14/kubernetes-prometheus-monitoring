@@ -17,3 +17,10 @@ scrape_configs:
 
     static_configs:
       - targets: ['localhost:9090']
+
+  - job_name: 'go_client'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.108.204.16:8080']
+        labels:
+          group: 'production'
