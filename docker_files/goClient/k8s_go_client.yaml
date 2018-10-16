@@ -1,21 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: go_client
+  name: go-client
   labels:
-    app: go_client
+    app: go-client
 spec:
   replicas: 1
   template:
     metadata:
-      name: go_client
+      name: go-client
       labels:
-        app: go_client
+        app: go-client
     spec:
       serviceAccountName: prometheus-k8s
       containers:
       - name: prometheus
-        image: registry.cn-qingdao.aliyuncs.com/ruipages/go_client
+        image: registry.cn-qingdao.aliyuncs.com/ruipages/go-client
         command: ["./random "]
         args: ["-listen-address=:8080"]
         ports:
@@ -26,10 +26,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: go_client-svc
+  name: go-client-svc
 spec:
   selector:
-    run: go_client
+    run: go-client
   ports:
   - protocol: TCP
     port: 8080
