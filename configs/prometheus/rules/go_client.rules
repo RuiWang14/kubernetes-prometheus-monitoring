@@ -1,0 +1,1 @@
+avg(rate(rpc_durations_seconds_count[5m])) by (job, service)
