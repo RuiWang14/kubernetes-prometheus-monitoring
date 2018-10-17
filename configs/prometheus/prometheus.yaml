@@ -2,7 +2,7 @@ global:
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
 
 rule_files:
-  - "/etc/prometheus-rules/*.rules"
+  - "/etc/prometheus-rules/*.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
