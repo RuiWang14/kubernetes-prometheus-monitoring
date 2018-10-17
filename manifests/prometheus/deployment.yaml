@@ -20,7 +20,7 @@ spec:
       - name: prometheus
         image: prom/prometheus:v2.4.3
         args:
-          - '-config.file=/etc/prometheus/prometheus.yaml'
+          - '--config.file=/etc/prometheus/prometheus.yaml'
         ports:
         - name: webui
           containerPort: 9090
