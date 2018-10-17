@@ -6,11 +6,11 @@ kubectl --namespace monitoring create configmap --dry-run prometheus-core \
   --output yaml \
     > ./manifests/prometheus/configmap.yaml
 
-## Create ConfigMap with prometheus rules for alerting
-#kubectl --namespace monitoring create configmap --dry-run prometheus-rules \
-#  --from-file=configs/prometheus/rules \
-#  --output yaml \
-#    > ./manifests/prometheus/prometheus-rules.yaml
+# Create ConfigMap with prometheus rules for alerting
+kubectl --namespace monitoring create configmap --dry-run prometheus-rules \
+  --from-file=configs/prometheus/rules \
+  --output yaml \
+    > ./manifests/prometheus/prometheus-rules.yaml
 
 # Create one single manifest file
 target="./manifests-all.yaml"
