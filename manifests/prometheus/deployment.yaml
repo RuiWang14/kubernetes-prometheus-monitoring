@@ -15,7 +15,7 @@ spec:
         app: prometheus
         component: core
     spec:
-      serviceAccountName: prometheus
+      serviceAccountName: prometheus-k8s
       containers:
       - name: prometheus
         image: prom/prometheus:v2.4.3
