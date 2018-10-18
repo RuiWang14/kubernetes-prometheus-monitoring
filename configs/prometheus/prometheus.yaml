@@ -31,10 +31,20 @@ scrape_configs:
     kubernetes_sd_configs:
       - role: node
     relabel_configs:
-      - source_labels: [__address__]
-        regex: '(.*):10250'
-        replacement: '${1}:10255'
-        target_label: __address__
+      # 即从 __meta_kubernetes_node_label_<labelname> 这个配置中取出 labelname 以及 value
+      - action: labelmap
+        regex: __meta_kubernetes_node_label_(.+)
+
+        # 配置 address 为 k8s api 的地址，相关的 ca 证书以及 token 在上面配置
+      - target_label: __address__
+        replacement: kubernetes.default.svc:443
+
+        # 取出所有的 node，然后设置 /api/v1/nodes/<node_name>/proxy/metrics 为 metrics path
+      - source_labels:
+        - __meta_kubernetes_node_name
+        regex: (.+)
+        target_label: __metrics_path__
+        replacement: /api/v1/nodes/${1}/proxy/metrics
 
   # https://github.com/prometheus/prometheus/blob/master/documentation/examples/prometheus-kubernetes.yml#L79
   - job_name: 'kubernetes-endpoints'
