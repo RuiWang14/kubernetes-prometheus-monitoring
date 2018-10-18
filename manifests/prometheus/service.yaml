@@ -14,6 +14,7 @@ spec:
     - port: 9090
       protocol: TCP
       name: webui
+      nodePort: 31606
   selector:
     app: prometheus
     component: core
