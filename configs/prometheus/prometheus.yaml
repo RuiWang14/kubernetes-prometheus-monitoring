@@ -60,8 +60,8 @@ scrape_configs:
         action: replace
         target_label: kubernetes_name
 
-  # https://github.com/prometheus/prometheus/blob/master/documentation/examples/prometheus-kubernetes.yml#L119
- - job_name: 'kubernetes-services'
+
+  - job_name: 'kubernetes-services'
 
     metrics_path: /probe
     params:
