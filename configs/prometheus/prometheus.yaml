@@ -130,6 +130,10 @@ scrape_configs:
       regex: (.+)
       target_label: __metrics_path__
       replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
+    - source_labels: [__address__]
+      regex: '(.*):10250'
+      replacement: '${1}:6443'
+      target_label: __address__
 
   # Example scrape config for service endpoints.
   #
