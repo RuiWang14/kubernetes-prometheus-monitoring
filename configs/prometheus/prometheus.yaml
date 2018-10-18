@@ -86,7 +86,7 @@ scrape_configs:
     - action: labelmap
       regex: __meta_kubernetes_node_label_(.+)
     - target_label: __address__
-      replacement: kubernetes.default.svc:443
+      replacement: kubernetes:6443
     - source_labels: [__meta_kubernetes_node_name]
       regex: (.+)
       target_label: __metrics_path__
@@ -129,7 +129,7 @@ scrape_configs:
     - action: labelmap
       regex: __meta_kubernetes_node_label_(.+)
     - target_label: __address__
-      replacement: kubernetes:443
+      replacement: kubernetes:6443
     - source_labels: [__meta_kubernetes_node_name]
       regex: (.+)
       target_label: __metrics_path__
