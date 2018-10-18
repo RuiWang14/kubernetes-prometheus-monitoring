@@ -8,13 +8,16 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
 
-  # https://github.com/prometheus/prometheus/blob/master/documentation/examples/prometheus-kubernetes.yml#L37
   - job_name: 'kubernetes-nodes'
+    scheme: https
+
     tls_config:
       ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
     bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+
     kubernetes_sd_configs:
-      - role: node
+    - role: node
+
     relabel_configs:
     - action: labelmap
       regex: __meta_kubernetes_node_label_(.+)
