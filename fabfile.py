@@ -14,6 +14,6 @@ def deploy():
     with cd(base_path):
         run('pwd')
         run('git pull')
-        # run('kubectl delete -f manifests-all.yaml')
+        run('kubectl delete -f manifests-all.yaml')
         run('./build.sh')
         run('kubectl create -f manifests-all.yaml')
