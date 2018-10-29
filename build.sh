@@ -12,6 +12,18 @@ kubectl --namespace monitoring create configmap --dry-run prometheus-rules \
   --output yaml \
     > ./manifests/prometheus/prometheus-rules.yaml
 
+# Create ConfigMap for an external url
+kubectl --namespace monitoring create configmap --dry-run alertmanager-templates \
+  --from-file=configs/alertmanager-templates \
+  --output yaml \
+    > ./manifests/alertmanager/alertmanager-templates.yaml
+
+# Create ConfigMap for alertmanager
+kubectl --namespace monitoring create configmap --dry-run alertmanager \
+  --from-file=configs/alertmanager-templates/alertmanager.yaml \
+  --output yaml \
+    > ./manifests/alertmanager/configmap.yaml
+
 # Create one single manifest file
 target="./manifests-all.yaml"
 rm "$target"
