@@ -13,7 +13,7 @@ kubectl --namespace monitoring create configmap --dry-run prometheus-rules \
     > ./manifests/prometheus/prometheus-rules.yaml
 
 # Create ConfigMap for an external url
-kubectl --namespace monitoring create configmap --dry-run alertmanager-templates \
+kubectl --namespace monitoring create configmap --dry-run templates \
   --from-file=configs/alertmanager/templates \
   --output yaml \
     > ./manifests/alertmanager/templates.yaml
