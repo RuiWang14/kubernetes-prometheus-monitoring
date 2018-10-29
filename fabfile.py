@@ -13,6 +13,7 @@ def deploy():
 
     with cd(base_path):
         run('pwd')
+        run('git reset --hard HEAD')
         run('git pull')
         run('kubectl delete -f manifests-all.yaml')
         run('./build.sh')
