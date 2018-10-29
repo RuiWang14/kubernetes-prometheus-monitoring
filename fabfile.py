@@ -15,6 +15,6 @@ def deploy():
         run('pwd')
         run('git reset --hard HEAD')
         run('git pull')
-        run('kubectl delete -f manifests-all.yaml')
         run('./build.sh')
+        run('kubectl delete -f manifests-all.yaml')
         run('kubectl create -f manifests-all.yaml')
