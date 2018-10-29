@@ -21,7 +21,6 @@ spec:
         image: prom/prometheus:v2.4.3
         args:
           - '--config.file=/etc/prometheus/prometheus.yaml'
-          - '--alertmanager.url=http://alertmanager.monitoring:9093/'
         ports:
         - name: webui
           containerPort: 9090
