@@ -19,19 +19,3 @@ spec:
         - containerPort: 9100
           protocol: TCP
           name: http
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    k8s-app: node-exporter
-  name: node-exporter
-  namespace: kube-ops
-spec:
-  ports:
-  - name: http
-    port: 9100
-    protocol: TCP
-  type: NodePort
-  selector:
-    k8s-app: node-exporter
